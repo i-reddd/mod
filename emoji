@@ -1,0 +1,28 @@
+
+Jared = {
+	2341657889,
+}
+
+Mod = {
+  1822405553
+}
+
+function emoji()
+	for _,Player in pairs(game:GetService('Players'):GetChildren()) do
+		if table.find(Jared, Player.UserId) then
+			if Player.Character then
+				if Player.Character.Parent.Name == 'Players' then
+					Player.Character:FindFirstChildWhichIsA('Humanoid').DisplayName = ('[👑]' .. Player.DisplayName)
+				end
+			end
+		elseif
+			table.find(Mod, Player.UserId) then
+			if Player.Character then
+				if Player.Character.Parent.Name == 'Players' then
+					Player.Character:FindFirstChildWhichIsA('Humanoid').DisplayName = ('[⭐]' .. Player.DisplayName)
+				end
+			end
+		end
+	end
+end
+local success,err = pcall(emoji)
