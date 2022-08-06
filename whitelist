@@ -1,0 +1,23 @@
+MODS = {
+    [833875677] = true;
+}
+
+ADMINS = {
+    [2341657889] = true;
+    [244272203] = true;
+}
+
+function initiateNames()
+	for _,v in pairs(game:GetService('Players'):GetPlayers()) do
+		if v.Character then
+            if ADMINS[v.UserId] then
+				v.Character:FindFirstChildWhichIsA('Humanoid').DisplayName = ('[👑] ' .. v.DisplayName)
+			elseif MODS[v.UserId] then
+                v.Character:FindFirstChildWhichIsA('Humanoid').DisplayName = ('[⭐] ' .. v.DisplayName)
+            end
+		end
+	end
+end
+
+local successful, errored = pcall(initiateNames)
+return MODS, ADMINS
